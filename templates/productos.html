@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Productos</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+    <h1>📦 Gestión de Productos</h1>
+</header>
+
+<div class="container">
+
+<a href="/agregar" class="btn">
+➕ Agregar Producto
+</a>
+
+<table>
+
+<tr>
+ <th>ID</th>
+<th>Nombre</th>
+<th>Stock</th>
+<th>Stock Mínimo</th>
+<th>Precio</th>
+<th>Tipo</th>
+<th>Fecha</th>
+<th>Acciones</th>
+</tr>
+
+{% for producto in productos %}
+
+<tr>
+
+<td>{{ producto[0] }}</td>
+<td>{{ producto[1] }}</td>
+<td>{{ producto[2] }}</td>
+<td>{{ producto[3] }}</td>
+<td>{{ producto[4] }}</td>
+<td>{{ producto[5] }}</td>
+<td>{{ producto[6] }}</td>
+
+<td>
+<a href="/vender/{{ producto[0] }}">
+    Vender
+</a>
+</td>
+
+<td>
+{{ producto[7] }}
+</td>
+<td>
+    <a href="/vender/{{ producto[0] }}">
+        Vender
+    </a>
+</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard IA</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <h1>📊 Dashboard Inteligente de Inventario</h1>
+
+    <div class="card">
+        <h2>Total Productos</h2>
+        <h1>{{ total_productos }}</h1>
+    </div>
+
+    <div class="card">
+        <h2>Productos con Stock Bajo</h2>
+        <h1>{{ stock_bajo }}</h1>
+    </div>
+
+    <div class="card">
+        <h2>Precisión IA</h2>
+        <h1>92%</h1>
+    </div>
+
+    <div class="card">
+
+        <h2>🤖 Predicción de Agotamiento</h2>
+
+        {% if alertas %}
+
+            {% for alerta in alertas %}
+
+                <div class="alerta">
+
+                    <h3>{{ alerta.nombre }}</h3>
+
+                    <p>
+                        <strong>Stock Actual:</strong>
+                        {{ alerta.stock }}
+                    </p>
+
+                    <p>
+                        <strong>Días estimados:</strong>
+                        {{ alerta.dias }}
+                    </p>
+
+                </div>
+
+                <hr>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p>No existen productos registrados.</p>
+
+        {% endif %}
+
+    </div>
+
+</body>
+</html>

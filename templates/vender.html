@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registrar Venta</title>
+</head>
+<body>
+
+<h2>Registrar Venta</h2>
+
+<p>
+Producto:
+<b>{{ producto[1] }}</b>
+</p>
+
+<p>
+Stock actual:
+<b>{{ producto[2] }}</b>
+</p>
+
+<form method="POST">
+
+    Cantidad vendida:
+
+    <input
+        type="number"
+        name="cantidad"
+        min="1"
+        required>
+
+    <br><br>
+
+    <button type="submit">
+        Guardar Venta
+    </button>
+
+</form>
+
+</body>
+</html>

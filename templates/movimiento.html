@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registrar Movimiento</title>
+</head>
+<body>
+
+<h2>Registrar Movimiento</h2>
+
+<form method="POST">
+
+    Producto:
+
+    <select name="producto_id">
+
+        {% for producto in productos %}
+
+        <option value="{{ producto[0] }}">
+            {{ producto[1] }}
+        </option>
+
+        {% endfor %}
+
+    </select>
+
+    <br><br>
+
+    Cantidad:
+
+    <input
+        type="number"
+        name="cantidad"
+        required>
+
+    <br><br>
+
+    Tipo:
+
+    <select name="tipo">
+
+        <option value="ENTRADA">
+            Entrada
+        </option>
+
+        <option value="SALIDA">
+            Salida
+        </option>
+
+    </select>
+
+    <br><br>
+
+    <button type="submit">
+        Guardar Movimiento
+    </button>
+
+</form>
+
+</body>
+</html>
