@@ -1,15 +1,10 @@
 from flask import Flask, render_template,request,redirect
 
-import pyodbc
+import sqlite3
 app = Flask(__name__)
 def conectar():
 
-    return pyodbc.connect(
-        'DRIVER={SQL Server};'
-        'SERVER=DESKTOP-K8HOHEK\\SQLEXPRESS;'
-        'DATABASE=InventarioDB;'
-        'Trusted_Connection=yes;'
-    )
+     return sqlite3.connect("database.db")
 # Página principal
 @app.route('/')
 def inicio():
@@ -179,12 +174,7 @@ def vender(id):
 @app.route('/movimiento', methods=['GET', 'POST'])
 def movimiento():
 
-    conexion = pyodbc.connect(
-      'DRIVER={SQL Server};'
-    'SERVER=DESKTOP-K8HOHEK\\SQLEXPRESS;'
-    'DATABASE=InventarioDB;'
-    'Trusted_Connection=yes;'
-    )
+    conexion = conectar()
 
     cursor = conexion.cursor()
 
